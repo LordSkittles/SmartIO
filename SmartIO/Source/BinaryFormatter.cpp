@@ -17,5 +17,6 @@
 
 namespace SmartIO
 {
-
+	BinaryFormatter::BinaryFormatter(const char* aFileName) :
+		mFileName(aFileName) {}
 }
