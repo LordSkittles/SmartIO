@@ -19,6 +19,7 @@
 #include <fstream>
 #include <vector>
 #include <stdarg.h>
+#include "SmartUtil.hpp"
 
 using std::ios;
 using std::fstream;
@@ -92,30 +93,34 @@ namespace SmartIO
 		//the binary file.
 		//@param Params - The data being read into from the binary file. Can be
 		//as many parameters as was written into the function.
-		void Read(unsigned int aReadAmount, T&...)
+		void Read(unsigned int aReadAmount, ...)
 		{
-			//Attempt to open the binary file and check it didn't fail
-			mBinaryFile.open(mFileName, ios::in | ios::binary);
-			if (mBinaryFile.is_open() && !mBinaryFile.fail())
+			//Check if the template is a pointer.
+			if (SmartIO::is_pointer<T>::value)
 			{
-				//Create the variable argument list and start it
-				va_list variableList;
-				va_start(variableList, aReadAmount);
-
-				//Loop through all the passed parameters and write them
-				for (unsigned int iter = 0; iter < aReadAmount; iter++)
+				//Attempt to open the binary file and check it didn't fail
+				mBinaryFile.open(mFileName, ios::in | ios::binary);
+				if (mBinaryFile.is_open() && !mBinaryFile.fail())
 				{
-					//Get the value and write it
-					T& argVal = va_arg(variableList, T);
-					mBinaryFile.read((char*)&argVal, sizeof(T));
+					//Create the variable argument list and start it
+					va_list variableList;
+					va_start(variableList, aReadAmount);
+
+					//Loop through all the passed parameters and write them
+					for (unsigned int iter = 0; iter < aReadAmount; iter++)
+					{
+						//Get the value and write it
+						T argVal = va_arg(variableList, T);
+						mBinaryFile.read((char*)&argVal, sizeof(T));
+					}
+
+					//End the variable list
+					va_end(variableList);
 				}
 
-				//End the variable list
-				va_end(variableList);
+				//Close the file
+				mBinaryFile.close();
 			}
-
-			//Close the file
-			mBinaryFile.close();
 		}
 
 	private:
