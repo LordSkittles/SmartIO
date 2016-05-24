@@ -123,6 +123,7 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="UnitTests\UnitTestDirectory.cpp" />
+    <ClCompile Include="UnitTests\UnitTestFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Catch.hpp" />

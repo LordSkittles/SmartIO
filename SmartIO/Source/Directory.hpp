@@ -30,6 +30,8 @@ namespace SmartIO
 	class Directory
 	{
 	public:
+		//TODO: Add Copy and Move
+
 		//!Checks if the passed relative directory path is a valid
 		//!directory. Will not create the directory, only check if it
 		//!actually exists.
@@ -70,6 +72,10 @@ namespace SmartIO
 		//!@param aToFind - The file or directory we are attempting to find.
 		//!@return bool - Whether or not the actual directory was created at the location.
 		static std::vector<std::string> List(const char* aDirectoryName);
+
+		static bool Move(const char* aDirectoryName, const char* aNewLocation);
+
+		static bool Copy(const char* aDirectoryName, const char* aNewLocation = "");
 
 	};
 }

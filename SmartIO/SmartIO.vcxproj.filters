@@ -24,6 +24,9 @@
     <ClInclude Include="Source\External-Lib\dirent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\File.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

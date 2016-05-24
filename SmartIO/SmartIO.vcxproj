@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="Source\Directory.hpp" />
     <ClInclude Include="Source\External-Lib\dirent.h" />
+    <ClInclude Include="Source\File.hpp" />
     <ClInclude Include="Source\SmartUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
