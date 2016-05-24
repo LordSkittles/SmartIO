@@ -19,17 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\BinaryFormatter.hpp">
-      <SubType>
-      </SubType>
-    </ClInclude>
+    <ClInclude Include="Source\Directory.hpp" />
+    <ClInclude Include="Source\External-Lib\dirent.h" />
     <ClInclude Include="Source\SmartUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\BinaryFormatter.cpp" />
+    <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
+    <ClCompile Include="Source\Directory.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A7093C23-2FAD-46E5-8A5E-032E64978B47}</ProjectGuid>
@@ -89,7 +87,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

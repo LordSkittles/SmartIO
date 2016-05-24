@@ -20,10 +20,10 @@ namespace SmartIO
 {
 	template<typename T>
 	//!This struct lets the user know that the type they have
-	//passed is not of pointer type.
-	//
-	//@since 1.0
-	//@author James Mills
+	//!passed is not of pointer type.
+	//!
+	//!@author James Mills
+	//!@version 1.0
 	struct is_pointer 
 	{ 
 		static const bool value = false;
@@ -31,10 +31,10 @@ namespace SmartIO
 
 	template<typename T>
 	//!This struct lets the user know that the type they have
-	//passed is of pointer type.
-	//
-	//@since 1.0
-	//@author James Mills
+	//!passed is of pointer type.
+	//!
+	//!@author James Mills
+	//!@version 1.0
 	struct is_pointer<T*> 
 	{ 
 		static const bool value = true; 
