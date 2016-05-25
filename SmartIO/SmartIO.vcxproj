@@ -19,17 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Binary.hpp" />
     <ClInclude Include="Source\Directory.hpp" />
-    <ClInclude Include="Source\dirent.h" />
-    <ClInclude Include="Source\File.hpp" />
+    <ClInclude Include="Source\External-Lib\dirent.h" />
     <ClInclude Include="Source\SmartUtil.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Binary.cpp" />
     <ClCompile Include="Source\Directory.cpp" />
-    <ClCompile Include="Source\File.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A7093C23-2FAD-46E5-8A5E-032E64978B47}</ProjectGuid>
@@ -115,7 +115,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

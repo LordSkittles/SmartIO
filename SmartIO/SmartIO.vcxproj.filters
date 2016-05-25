@@ -21,10 +21,10 @@
     <ClInclude Include="Source\Directory.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\File.hpp">
+    <ClInclude Include="Source\External-Lib\dirent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source\dirent.h">
+    <ClInclude Include="Source\Binary.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClCompile Include="Source\Directory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\File.cpp">
+    <ClCompile Include="Source\Binary.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
