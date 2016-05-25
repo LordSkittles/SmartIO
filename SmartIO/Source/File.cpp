@@ -26,6 +26,32 @@ using std::ios;
 
 namespace SmartIO
 {
+	File::File(const char* aFileName)
+	{
+		//If the argument is null, make this null.
+		if (aFileName == nullptr)
+		{
+			mFileName = nullptr;
+			return;
+		}
+
+		//Allocate a size for mFileName, and copy the string over.
+		mFileName = static_cast<char*>(malloc(strlen(aFileName)));
+		strcpy(mFileName, aFileName);
+	}
+
+	File::File(const File& aOtherFile)
+	{
+		*this = aOtherFile;
+	}
+
+	File::~File()
+	{
+		//Free and set to null
+		free(mFileName);
+		mFileName = nullptr;
+	}
+
 	string EncryptDecrypt(const string& aToEncrypt)
 	{
 		//Create the encryption key array and copy the parameter

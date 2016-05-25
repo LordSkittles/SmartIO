@@ -9,8 +9,8 @@
 //	Time Created: 5/24/2016 3:27 PM
 //
 //	EDITS
-//	Last Editor Name: JAMES
-//	Last Edit Time: 5/24/2016 3:27 PM
+//	Last Editor Name: JESSE
+//	Last Edit Time: 5/25/2016 2:02 PM
 //
 ////////////////////////////////////////////////////
 #ifndef _FILE_H_
@@ -35,7 +35,15 @@ namespace SmartIO
 		//!The custom constructor sets the internal file name to the passed char string.
 		//!
 		//!@param aFileName - The name of the file this class will be associated with.
-		File(char* aFileName) : mFileName(aFileName) {}
+		File(const char* aFileName);
+
+		//!The copy constructor copies all members over from the other to this.
+		//!
+		//!@param aOtherFile - The object to copy from.
+		File(const File& aOtherFile);
+
+		//!The destructor deletes any memory allocated by this class.
+		File::~File();
 
 		//!This will attempt to create the file with the path (if one is specified).
 		//!The file will have '- Copy' added to the end of the name if a file with the
@@ -102,6 +110,23 @@ namespace SmartIO
 		//!
 		//!@return vector<string> - The data being read from the file specified.
 		std::vector<std::string> ReadAll();
+
+		//!This will copy over member data from the other to this.
+		//!
+		//!@return File - This object.
+		File& operator=(const File& aOtherFile)
+		{
+			//If the other's mFileName is null, make this null.
+			if (aOtherFile.mFileName == nullptr)
+			{
+				mFileName = nullptr;
+				return;
+			}
+
+			//Allocate a size for mFileName, and copy the string over.
+			mFileName = static_cast<char*>(malloc(strlen(aOtherFile.mFileName)));
+			strcpy(mFileName, aOtherFile.mFileName);
+		}
 
 	protected:
 		char* mFileName; //!< The name of the file the instance of this class will be associated with.
