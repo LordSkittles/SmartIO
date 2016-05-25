@@ -17,7 +17,7 @@
 
 #include <direct.h>
 
-#include "External-Lib\dirent.h"
+#include "dirent.h"
 
 using std::string;
 using std::vector;
