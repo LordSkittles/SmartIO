@@ -29,6 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Directory.cpp" />
+    <ClCompile Include="Source\File.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A7093C23-2FAD-46E5-8A5E-032E64978B47}</ProjectGuid>

@@ -22,11 +22,11 @@
 namespace SmartIO
 {
 	//!The directory class contains the functions that allow the user to easily
-	//manipulate the physical folder structure of the system. Relative to the 
-	//working directory of the project.
-	//
-	//@author James Mills
-	//@version 1.0
+	//!manipulate the physical folder structure of the system. Relative to the 
+	//!working directory of the project.
+	//!
+	//!@author James Mills
+	//!@version 1.0
 	class Directory
 	{
 	public:
@@ -53,7 +53,7 @@ namespace SmartIO
 		//!SUBDIRECTORIES AND FILES!
 		//!
 		//!@param aDirectoryName - The path to the relative directory.
-		//!@return bool - Whether or not the actual directory was created at the location.
+		//!@return bool - Whether or not the actual directory was deleted from the location.
 		static bool Delete(const char* aDirectoryName);
 
 		//!Attempts to find the passed file or directory in the passed directory path. If
@@ -62,7 +62,7 @@ namespace SmartIO
 		//!
 		//!@param aDirectoryName - The path to the relative directory.
 		//!@param aToFind - The file or directory we are attempting to find.
-		//!@return bool - Whether or not the actual directory was created at the location.
+		//!@return bool - Whether or not the actual directory contains the file/directory.
 		static bool Contains(const char* aDirectoryName, const char* aToFind);
 
 		//!Get's all the directories and files found inside the passed directory and return
@@ -70,11 +70,23 @@ namespace SmartIO
 		//!
 		//!@param aDirectoryName - The path to the relative directory.
 		//!@param aToFind - The file or directory we are attempting to find.
-		//!@return bool - Whether or not the actual directory was created at the location.
+		//!@return vector<string> - The vector of all the file/folder names in this directory.
 		static std::vector<std::string> List(const char* aDirectoryName);
 
+		//!Moves the directory specified to the new location. Takes all the files and sub-
+		//!directories with it. Will always safely move all files.
+		//!
+		//!@param aDirectoryName - The path to the relative Directory.
+		//!@param aNewLocation - The location that the folder being moved will be moved to.
+		//!@return bool - Whether or not the folder was successfully moved to the new location.
 		static bool Move(const char* aDirectoryName, const char* aNewLocation);
 
+		//!Copies the directory specified to either a new location or the same location. 
+		//!Takes all the files and sub-directories with it. Will always safely copy all files.
+		//!
+		//!@param aDirectoryName - The path to the relative Directory.
+		//!@param aNewLocation - The location that the folder being moved will be moved to.
+		//!@return bool - Whether or not the folder was successfully moved to the new location.
 		static bool Copy(const char* aDirectoryName, const char* aNewLocation = "");
 
 	};
