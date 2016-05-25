@@ -14,30 +14,12 @@
 //
 ////////////////////////////////////////////////////
 #include "Binary.hpp"
-#include ""
+#include "Directory.hpp"
 
 namespace SmartIO
 {
-	bool Binary::Exists(const char* aDirectoryName)
+	bool Binary::Foo(const char* aFooArg)
 	{
-		//Create the directory instance and attempt to open it
-		DIR* directory;
-		directory = opendir(aDirectoryName);
-
-		//Check whether the directory exists or not
-		bool exists = directory != NULL;
-
-		//Close the directory for safety if it exists
-		if (exists)
-		{
-			if (closedir(directory))
-			{
-				//We didn't close so print a message and exit the program
-				fprintf(stderr, "Could not close '%s': %s\n", aDirectoryName, strerror(errno));
-			}
-		}
-
-		//Return whether or not the directory exists
-		return exists;
+		return true;
 	}
 }

@@ -29,13 +29,11 @@ namespace SmartIO
 	class Binary
 	{
 	public:
-		//!Checks if the passed relative directory path is a valid
-		//!directory. Will not create the directory, only check if it
-		//!actually exists.
+		//!Foo.
 		//!
-		//!@param aDirectoryName - The path to the relative directory.
-		//!@return bool - Whether or not the actual directory exists at the location.
-		static bool Exists(const char* aDirectoryName);
+		//!@param aFooArg - Foo foo foo.
+		//!@return bool - Boo.
+		static bool Foo(const char* aFooArg);
 
 	};
 }
