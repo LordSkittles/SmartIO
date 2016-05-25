@@ -17,6 +17,8 @@ TEST_CASE("Directory - Testing the Create functionality.")
 TEST_CASE("Directory - Testing the Contains functionality.")
 {
 	REQUIRE(Directory::Contains("TestDirectory/SubDirectory", "NewDir"));
+	REQUIRE(Directory::Contains("TestDirectory/SubDirectory", "SomeFile.txt"));
+	REQUIRE(Directory::Contains("TestDirectory/SubDirectory", "SomeFile.*"));
 }
 
 TEST_CASE("Directory - Testing the List functionality.")

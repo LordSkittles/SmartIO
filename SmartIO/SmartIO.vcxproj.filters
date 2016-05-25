@@ -24,12 +24,18 @@
     <ClInclude Include="Source\External-Lib\dirent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\File.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Directory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\File.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
