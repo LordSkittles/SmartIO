@@ -10,7 +10,7 @@
 //
 //	EDITS
 //	Last Editor Name: JESSE
-//	Last Edit Time: 5/25/2016 1:55 PM
+//	Last Edit Time: 5/25/2016 2:30 PM
 //
 ////////////////////////////////////////////////////
 #ifndef _BINARY_H_
