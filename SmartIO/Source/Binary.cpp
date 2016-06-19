@@ -61,5 +61,28 @@ namespace SmartIO
 		//Delete and reassign mTargetBinFile;
 		delete mTargetBinFile;
 		mTargetBinFile = new File(binaryFile);
+
+		//We've succeeded in creating the binary file.
+		return true;
+	}
+
+	Binary& Binary::operator=(const Binary& aOtherBinary)
+	{
+		//If the other binary object doesn't have a target, no need to do anything.
+		if (aOtherBinary.mTargetBinFile == nullptr)
+		{
+			return *this;
+		}
+
+		//If mTargetBinFile already exists, delete it.
+		if (mTargetBinFile != nullptr)
+		{
+			delete mTargetBinFile;
+		}
+
+		//Create a copy of the other binary's target.
+		mTargetBinFile = new File(*aOtherBinary.mTargetBinFile);
+
+		return *this;
 	}
 }

@@ -10,7 +10,7 @@
 //
 //	EDITS
 //	Last Editor Name: JESSE
-//	Last Edit Time: 5/25/2016 2:02 PM
+//	Last Edit Time: 6/19/2016 7:24 PM
 //
 ////////////////////////////////////////////////////
 #ifndef _FILE_H_
@@ -43,7 +43,7 @@ namespace SmartIO
 		File(const File& aOtherFile);
 
 		//!The destructor deletes any memory allocated by this class.
-		File::~File();
+		~File();
 
 		//!This will attempt to create the file with the path (if one is specified).
 		//!The file will have '- Copy' added to the end of the name if a file with the
@@ -114,19 +114,7 @@ namespace SmartIO
 		//!This will copy over member data from the other to this.
 		//!
 		//!@return File - This object.
-		File& operator=(const File& aOtherFile)
-		{
-			//If the other's mFileName is null, make this null.
-			if (aOtherFile.mFileName == nullptr)
-			{
-				mFileName = nullptr;
-				return;
-			}
-
-			//Allocate a size for mFileName, and copy the string over.
-			mFileName = static_cast<char*>(malloc(strlen(aOtherFile.mFileName)));
-			strcpy(mFileName, aOtherFile.mFileName);
-		}
+		File& operator=(const File& aOtherFile);
 
 	protected:
 		char* mFileName; //!< The name of the file the instance of this class will be associated with.

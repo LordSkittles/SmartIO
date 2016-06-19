@@ -9,8 +9,8 @@
 //	Time Created: 5/24/2016 3:27 PM
 //
 //	EDITS
-//	Last Editor Name: JAMES
-//	Last Edit Time: 5/24/2016 3:27 PM
+//	Last Editor Name: JESSE
+//	Last Edit Time: 6/19/2016 7:24 PM
 //
 ////////////////////////////////////////////////////
 #include "File.hpp"
@@ -437,5 +437,19 @@ namespace SmartIO
 
 		//We could write to the file as it wasn't found or couldn't be read.
 		return lines;
+	}
+
+	File& File::operator=(const File& aOtherFile)
+	{
+		//If the other's mFileName is null, make this null.
+		if (aOtherFile.mFileName == nullptr)
+		{
+			mFileName = nullptr;
+			return *this;
+		}
+
+		//Allocate a size for mFileName, and copy the string over.
+		mFileName = static_cast<char*>(malloc(strlen(aOtherFile.mFileName)));
+		strcpy(mFileName, aOtherFile.mFileName);
 	}
 }

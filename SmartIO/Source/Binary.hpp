@@ -10,15 +10,18 @@
 //
 //	EDITS
 //	Last Editor Name: JESSE
-//	Last Edit Time: 5/25/2016 2:30 PM
+//	Last Edit Time: 6/19/2016 7:24 PM
 //
 ////////////////////////////////////////////////////
 #ifndef _BINARY_H_
 #define _BINARY_H_
 
+#include <vector>
+
 namespace SmartIO
 {
 	class File;
+	class BinaryPlugin;
 
 	//!The binary class provides functionality to interchange between
 	//!binary files and standard, non-binary files. The user can encode
@@ -33,9 +36,7 @@ namespace SmartIO
 	public:
 
 		//!The default constructor sets the internal file to null.
-		//!
-		//!@param aFileName - The name of the file this class will be associated with.
-		Binary() : mTargetBinFile(nullptr) {}
+		Binary() = delete;
 
 		//!The custom constructor is a short-hand to setting the target binary file when this object is created.
 		//!
@@ -44,7 +45,7 @@ namespace SmartIO
 
 		//!This will copy over member data from the other to this.
 		//!
-		//!@return File - This object.
+		//!@return Binary - This object.
 		Binary(const Binary& aOtherBinary);
 
 		//!The destructor which deletes the target file and any other members we have.
@@ -60,28 +61,14 @@ namespace SmartIO
 
 		//!This will copy over member data from the other to this.
 		//!
-		//!@return File - This object.
-		Binary& operator=(const Binary& aOtherBinary)
-		{
-			//If the other binary object doesn't have a target, delete it.
-			if (aOtherBinary.mTargetBinFile == nullptr)
-			{
-				return;
-			}
-
-			//If mTargetBinFile already exists, delete it.
-			if (mTargetBinFile != nullptr)
-			{
-				delete mTargetBinFile;
-			}
-
-			//Create a copy of the other binary's target.
-			mTargetBinFile = new File(*aOtherBinary.mTargetBinFile);
-		}
+		//!@return Binary - This object.
+		Binary& operator=(const Binary& aOtherBinary);
 
 	private:
 
 		File * mTargetBinFile;//!<The target binary file all operations are done on.
+
+		std::vector<BinaryPlugin *> mBinaryPlugins;//!<The list of plugins avaliable to this Binary class
 	};
 }
 
